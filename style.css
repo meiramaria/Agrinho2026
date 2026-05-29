@@ -230,6 +230,7 @@ button:hover{
 
 .green-card{
   background:#27500A;
+
 }
 
 .orange-card{
@@ -330,7 +331,7 @@ button:hover{
 .future{
   position:relative;
   padding:180px 8%;
-  background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
+  background-image:url(foto1.png);
   background-size:cover;
   background-position:center;
 }
