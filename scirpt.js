@@ -51,3 +51,22 @@ window.addEventListener("scroll", () => {
 
 });
 ```
+// Seleciona os botões pelo ID
+const exploreBtn = document.getElementById('exploreBtn');
+const infoBtn = document.getElementById('infoBtn');
+const futureBtn = document.getElementById('futureBtn');
+
+// Evento para o botão "Explorar Projeto"
+exploreBtn.addEventListener('click', () => {
+  window.open('https://www.agrinho.org.br', '_blank'); // Exemplo de site do Agrinho
+});
+
+// Evento para o botão "Saiba Mais" (Uso responsável de agroquímicos)
+infoBtn.addEventListener('click', () => {
+  window.open('https://www.fao.org/agrochemicals/en/', '_blank'); // Exemplo FAO Agroquímicos
+});
+
+// Evento para o botão "Descobrir Futuro" (Futuro do Agro)
+futureBtn.addEventListener('click', () => {
+  window.open('https://www.agriculture.com/technology', '_blank'); // Exemplo site sobre tecnologia no agro
+});
