@@ -1,15 +1,388 @@
-<section class="quiz" id="quiz">
-    <h2>Quiz</h2>
+@@ -1,42 +1,345 @@
+// Botão "Explorar Projeto"
+const exploreBtn = document.getElementById("exploreBtn");
 
-    <div id="quizContainer" class="quiz-container"></div>
+exploreBtn.addEventListener("click", () => {
+  alert("Bem-vindo ao Agrinho 2026! O futuro do agro começa agora.");
+  window.open("https://www.agrinho.org.br/", "_blank");
+});
 
-    <div class="quiz-actions">
-        <button id="submitQuiz" class="quiz-submit-btn">
-            Ver resultado
-        </button>
+// Botão "Saiba Mais"
+const infoBtn = document.getElementById("infoBtn");
+
+infoBtn.addEventListener("click", () => {
+  alert("A agricultura sustentável busca reduzir impactos ambientais utilizando tecnologias modernas, bioinsumos e produção responsável.");
+  window.open("https://www.embrapa.br/", "_blank");
+});
+
+// Botão "Descobrir Futuro"
+const futureBtn = document.getElementById("futureBtn");
+
+futureBtn.addEventListener("click", () => {
+  document.querySelector(".future").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  setTimeout(() => {
+    alert("Agro 2050: inteligência artificial, energia limpa e agricultura sustentável serão os pilares do futuro.");
+    window.open("https://www.agencia.cnptia.embrapa.br/", "_blank");
+  }, 500);
+});
+
+// Animação da barra de progresso
+window.addEventListener("scroll", () => {
+  const progress = document.querySelector(".progress");
+  let scroll = window.scrollY;
+  let width = 87 + scroll / 50;
+
+  if (width > 100) {
+    width = 100;
+  }
+
+  progress.style.width = width + "%";
+});
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazenda Sustentável - Agrinho 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barra de progresso -->
+    <div class="progress-container">
+        <div class="progress"></div>
     </div>
 
-    <div id="quiz-result" class="quiz-result-box"></div>
-</section>
+    <!-- Header -->
+    <header>
+        <div class="logo">Fazenda <span>Sustentável</span></div>
+        <nav>
+            <a href="#praticas">Práticas</a>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#dados">Números</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#futuro">Futuro</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+    </header>
 
-<script src="script.js" defer></script>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <span class="eyebrow">Projeto Agrinho 2026</span>
+            <h1>Bem-vindo à <span>Fazenda Sustentável</span></h1>
+            <p>Aprenda como produzir alimentos respeitando o meio ambiente de forma divertida e interativa. O futuro da agricultura começa com pequenas escolhas conscientes.</p>
+            <div class="buttons">
+                <button id="exploreBtn">Explorar Projeto</button>
+                <button id="infoBtn" class="secondary">Saiba Mais</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="Fazenda Sustentável com campos verdes ao amanhecer">
+        </div>
+    </section>
+
+    <!-- O que é Agricultura Sustentável -->
+    <section id="sobre" class="sobre">
+        <div class="sobre-inner">
+            <div class="sobre-text">
+                <h2>O que é Agricultura Sustentável?</h2>
+                <p>A agricultura sustentável é um modelo de produção que busca atender às necessidades alimentares do presente sem comprometer a capacidade das gerações futuras de suprir as suas próprias necessidades. Ela integra três pilares fundamentais:</p>
+                <ul class="pilares">
+                    <li><strong>🌿 Ambiental:</strong> conservar solo, água, biodiversidade e clima.</li>
+                    <li><strong>💰 Econômico:</strong> garantir renda justa e viabilidade do produtor rural.</li>
+                    <li><strong>🤝 Social:</strong> promover bem-estar, equidade e qualidade de vida no campo.</li>
+                </ul>
+                <p>Segundo a FAO (Organização das Nações Unidas para a Alimentação e a Agricultura), é necessário produzir 60% mais alimentos até 2050 para alimentar uma população de quase 10 bilhões de pessoas — e isso precisa acontecer de forma sustentável.</p>
+            </div>
+            <div class="sobre-img">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&q=80" alt="Mãos segurando terra fértil com broto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Práticas Sustentáveis -->
+    <section id="praticas" class="praticas">
+        <h2>Práticas Sustentáveis</h2>
+        <p class="section-subtitle">Conheça as principais técnicas adotadas nas fazendas sustentáveis do Brasil e do mundo.</p>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Economia de Água</h3>
+                <p>O sistema de <strong>irrigação por gotejamento</strong> reduz o consumo de água em até 50% comparado à irrigação convencional, entregando a água diretamente na raiz das plantas com mínimo desperdício.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">♻️</div>
+                <h3>Compostagem</h3>
+                <p>A compostagem transforma restos orgânicos (cascas, folhas, palha) em <strong>adubo natural rico em nutrientes</strong>, reduzindo o lixo e eliminando a necessidade de fertilizantes químicos caros.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">☀️</div>
+                <h3>Energia Solar</h3>
+                <p>Painéis fotovoltaicos instalados nas fazendas geram <strong>eletricidade limpa e renovável</strong>. O Brasil tem um dos melhores índices de irradiação solar do mundo, tornando essa tecnologia extremamente eficiente.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌳</div>
+                <h3>Preservação das Matas</h3>
+                <p>A <strong>integração lavoura-pecuária-floresta (ILPF)</strong> combina culturas agrícolas com árvores nativas, protegendo mananciais, atraindo polinizadores e aumentando a produtividade do solo.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌱</div>
+                <h3>Plantio Direto</h3>
+                <p>O plantio direto evita o revolvimento excessivo do solo, <strong>preservando sua estrutura e microorganismos</strong>, reduzindo a erosão e o consumo de combustível em até 40%.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🐛</div>
+                <h3>Controle Biológico</h3>
+                <p>Em vez de pesticidas químicos, o controle biológico usa <strong>inimigos naturais das pragas</strong> — como vespas, fungos benéficos e bactérias — para proteger as lavouras com zero impacto tóxico.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios" class="beneficios">
+        <h2>Benefícios para o Planeta</h2>
+        <p class="section-subtitle">A agricultura sustentável não beneficia apenas o produtor — ela transforma ecossistemas inteiros.</p>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">🌱</div>
+                <h3>Solo Saudável</h3>
+                <p>Práticas orgânicas aumentam a matéria orgânica do solo, melhorando sua capacidade de reter água e nutrientes. Um solo vivo produz mais com menos insumos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🐝</div>
+                <h3>Preservação da Fauna</h3>
+                <p>Sem agrotóxicos e com corredores ecológicos, as fazendas sustentáveis se tornam <strong>refúgio para abelhas, pássaros e insetos polinizadores</strong>, essenciais para a produção de alimentos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Menos Poluição</h3>
+                <p>O manejo correto do solo e da água evita que <strong>agroquímicos contaminem rios, lençóis freáticos e nascentes</strong>, protegendo a saúde humana e os ecossistemas aquáticos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌳</div>
+                <h3>Mais Árvores</h3>
+                <p>A recomposição de matas ciliares e reservas legais <strong>captura CO₂ da atmosfera</strong>, contribuindo diretamente para o combate às mudanças climáticas e regulação do clima local.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🥗</div>
+                <h3>Alimentos Mais Saudáveis</h3>
+                <p>Produtos cultivados de forma orgânica e sustentável possuem <strong>menor concentração de resíduos químicos</strong> e, em muitos casos, maior valor nutricional.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💼</div>
+                <h3>Geração de Renda</h3>
+                <p>O agroturismo, as feiras orgânicas e os selos de certificação sustentável abrem <strong>novos mercados e agregam valor</strong> à produção familiar, fortalecendo o campo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dados / Contadores -->
+    <section id="dados" class="dados">
+        <h2>A Sustentabilidade em Números</h2>
+        <p class="section-subtitle">Dados que mostram o impacto real da agricultura sustentável no Brasil e no mundo.</p>
+        <div class="counters-grid">
+            <div class="counter-card">
+                <span class="counter" data-target="50">0</span><span class="counter-suffix">%</span>
+                <p>de redução no consumo de água com irrigação por gotejamento</p>
+            </div>
+            <div class="counter-card">
+                <span class="counter" data-target="40">0</span><span class="counter-suffix">%</span>
+                <p>menos combustível no plantio direto em relação ao convencional</p>
+            </div>
+            <div class="counter-card">
+                <span class="counter" data-target="70">0</span><span class="counter-suffix">%</span>
+                <p>das emissões agrícolas poderiam ser reduzidas com práticas sustentáveis</p>
+            </div>
+            <div class="counter-card">
+                <span class="counter" data-target="200">0</span><span class="counter-suffix">mil</span>
+                <p>espécies de polinizadores dependem de habitats preservados na agricultura</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria" class="galeria">
+        <h2>Galeria</h2>
+        <p class="section-subtitle">Imagens que inspiram — a beleza da produção em harmonia com a natureza.</p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&q=80" alt="Campo verde ao amanhecer">
+                <div class="gallery-caption">Campo ao amanhecer</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&q=80" alt="Mãos na terra com broto">
+                <div class="gallery-caption">Plantio orgânico</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=500&q=80" alt="Fazenda com energia solar">
+                <div class="gallery-caption">Energia solar no campo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500&q=80" alt="Irrigação por gotejamento">
+                <div class="gallery-caption">Irrigação inteligente</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&q=80" alt="Floresta nativa preservada">
+                <div class="gallery-caption">Mata preservada</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=500&q=80" alt="Abelha polinizadora em flor">
+                <div class="gallery-caption">Polinização natural</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="quiz">
+        <h2>Quiz Sustentável</h2>
+        <p class="section-subtitle">Teste seus conhecimentos sobre agricultura sustentável. Escolha a alternativa correta em cada pergunta!</p>
+        <div class="quiz-container" id="quizContainer">
+            <!-- As perguntas são geradas pelo JavaScript -->
+        </div>
+        <div class="quiz-actions">
+            <button id="submitQuiz" class="quiz-submit-btn">Ver Resultado 🌿</button>
+        </div>
+        <div id="quiz-result" class="quiz-result-box" style="display:none;"></div>
+    </section>
+
+    <!-- Futuro da Agricultura -->
+    <section id="futuro" class="futuro">
+        <h2>O Futuro da Agricultura</h2>
+        <p class="futuro-lead">Tecnologia e natureza caminhando juntas para alimentar o mundo com responsabilidade.</p>
+        <div class="futuro-grid">
+            <div class="futuro-card">
+                <div class="futuro-icon">🤖</div>
+                <h3>Inteligência Artificial</h3>
+                <p>Algoritmos analisam imagens de satélite e dados de sensores para identificar pragas, prever safras e orientar o uso preciso de insumos — reduzindo desperdício e aumentando a produtividade.</p>
+            </div>
+            <div class="futuro-card">
+                <div class="futuro-icon">🚁</div>
+                <h3>Drones Agrícolas</h3>
+                <p>Drones realizam monitoramento aéreo, mapeamento de solo e aplicação localizada de defensivos biológicos, cobrindo grandes áreas em poucos minutos com altíssima precisão.</p>
+            </div>
+            <div class="futuro-card">
+                <div class="futuro-icon">🌐</div>
+                <h3>Internet das Coisas (IoT)</h3>
+                <p>Sensores conectados monitoram em tempo real a umidade do solo, temperatura, níveis de nutrientes e consumo de água, permitindo decisões automáticas e eficientes.</p>
+            </div>
+            <div class="futuro-card">
+                <div class="futuro-icon">🧬</div>
+                <h3>Bioinsumos</h3>
+                <p>Microrganismos benéficos como bactérias fixadoras de nitrogênio e fungos micorrízicos substituem fertilizantes químicos, nutrindo as plantas de forma natural e regenerando o solo.</p>
+            </div>
+            <div class="futuro-card">
+                <div class="futuro-icon">🌊</div>
+                <h3>Aquaponia e Hidroponia</h3>
+                <p>Sistemas que cultivam plantas e peixes em ciclos fechados, usando até 95% menos água que a agricultura convencional e produzindo alimentos frescos em áreas urbanas ou áridas.</p>
+            </div>
+            <div class="futuro-card">
+                <div class="futuro-icon">🌍</div>
+                <h3>Agricultura Regenerativa</h3>
+                <p>Vai além da sustentabilidade: além de não degradar, regenera ativamente o solo, a biodiversidade e o ciclo da água. É considerada uma das principais soluções para a crise climática.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referências -->
+    <section id="referencias" class="referencias">
+        <h2>Referências</h2>
+        <p class="section-subtitle">Todas as informações deste projeto foram baseadas em fontes científicas e institucionais confiáveis.</p>
+        <div class="refs-grid">
+            <div class="ref-card">
+                <span class="ref-num">01</span>
+                <div class="ref-content">
+                    <strong>FAO — Organização das Nações Unidas para a Alimentação e a Agricultura</strong>
+                    <p>The future of food and agriculture: trends and challenges. Roma: FAO, 2017. Disponível em: <a href="https://www.fao.org/3/i6583e/i6583e.pdf" target="_blank">fao.org</a></p>
+                    <em>Usado em: seção "O que é Agricultura Sustentável?" (dado de 60% mais alimentos até 2050)</em>
+                </div>
+            </div>
+            <div class="ref-card">
+                <span class="ref-num">02</span>
+                <div class="ref-content">
+                    <strong>EMBRAPA — Empresa Brasileira de Pesquisa Agropecuária</strong>
+                    <p>Plantio Direto: conceitos e vantagens. Brasília: EMBRAPA, 2022. Disponível em: <a href="https://www.embrapa.br/tema-plantio-direto" target="_blank">embrapa.br</a></p>
+                    <em>Usado em: prática "Plantio Direto" (redução de 40% no combustível)</em>
+                </div>
+            </div>
+            <div class="ref-card">
+                <span class="ref-num">03</span>
+                <div class="ref-content">
+                    <strong>EMBRAPA — Sistema de Integração Lavoura-Pecuária-Floresta (ILPF)</strong>
+                    <p>Benefícios e adoção do ILPF no Brasil. Disponível em: <a href="https://www.embrapa.br/tema-ilpf" target="_blank">embrapa.br/tema-ilpf</a></p>
+                    <em>Usado em: prática "Preservação das Matas" (sistema ILPF)</em>
+                </div>
+            </div>
+            <div class="ref-card">
+                <span class="ref-num">04</span>
+                <div class="ref-content">
+                    <strong>IPCC — Painel Intergovernamental sobre Mudanças Climáticas</strong>
+                    <p>Climate Change and Land. Geneva: IPCC, 2019. Disponível em: <a href="https://www.ipcc.ch/srccl/" target="_blank">ipcc.ch</a></p>
+                    <em>Usado em: seção "Números" (70% de redução de emissões agrícolas possíveis)</em>
+                </div>
+            </div>
+            <div class="ref-card">
+                <span class="ref-num">05</span>
+                <div class="ref-content">
+                    <strong>MAPA — Ministério da Agricultura, Pecuária e Abastecimento</strong>
+                    <p>Bioinsumos: o futuro da agricultura brasileira. Brasília: MAPA, 2023. Disponível em: <a href="https://www.gov.br/agricultura/pt-br/assuntos/sustentabilidade/bioinsumos" target="_blank">gov.br/agricultura</a></p>
+                    <em>Usado em: seção "Futuro" (Bioinsumos)</em>
+                </div>
+            </div>
+            <div class="ref-card">
+                <span class="ref-num">06</span>
+                <div class="ref-content">
+                    <strong>SEAB-PR — Secretaria da Agricultura e do Abastecimento do Paraná</strong>
+                    <p>Projeto Agrinho: campo e cidade, de mãos dadas. Curitiba: SEAB, 2026. Disponível em: <a href="https://www.agrinho.com.br" target="_blank">agrinho.com.br</a></p>
+                    <em>Usado em: contexto geral do projeto e tema Agrinho 2026</em>
+                </div>
+            </div>
+            <div class="ref-card">
+                <span class="ref-num">07</span>
+                <div class="ref-content">
+                    <strong>PNUMA — Programa das Nações Unidas para o Meio Ambiente</strong>
+                    <p>Towards a pollution-free planet. Nairobi: UNEP, 2021. Disponível em: <a href="https://www.unep.org" target="_blank">unep.org</a></p>
+                    <em>Usado em: benefício "Menos Poluição" (contaminação de rios e lençóis freáticos)</em>
+                </div>
+            </div>
+            <div class="ref-card">
+                <span class="ref-num">08</span>
+                <div class="ref-content">
+                    <strong>INPE — Instituto Nacional de Pesquisas Espaciais</strong>
+                    <p>Monitoramento da cobertura e uso da terra no Brasil. São José dos Campos: INPE, 2023. Disponível em: <a href="https://www.inpe.br" target="_blank">inpe.br</a></p>
+                    <em>Usado em: benefício "Mais Árvores" (captura de CO₂ e matas ciliares)</em>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="logo">Fazenda <span>Sustentável</span></span>
+                <p>Projeto desenvolvido para o concurso Agrinho 2026 com o tema <em>"Do Campo à Mesa: Sustentabilidade em Cada Colheita"</em>.</p>
+            </div>
+            <div class="footer-links">
+                <strong>Navegação</strong>
+                <a href="#sobre">O que é?</a>
+                <a href="#praticas">Práticas</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#futuro">Futuro</a>
+                <a href="#referencias">Referências</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Projeto Agrinho 2026 | Fazenda Sustentável | Curitiba – PR</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
