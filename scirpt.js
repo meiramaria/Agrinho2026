@@ -234,3 +234,16 @@ const counterObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 counters.forEach(c => counterObserver.observe(c));
+// ============================
+// Quiz
+// ============================
+const quizData = [
+    {
+        pergunta: "Qual prática sustentável apresentada no projeto pode reduzir o consumo de água em até 50% nas fazendas?",
+        opcoes: [
+            { texto: "Irrigação por gotejamento", correta: true },
+            { texto: "Plantio direto", correta: false },
+            { texto: "Controle biológico", correta: false }
+        ]
+    }
+];
