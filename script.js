@@ -1,5 +1,4 @@
-alert("SCRIPT CARREG
-      document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
 
     // ============================
     // BOTÕES
