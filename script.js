@@ -99,6 +99,60 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         submitQuiz.style.display = "none";
+    submitQuiz?.addEventListener("click", () => {
+
+    let score = 0;
+
+    quizData.forEach((q, qi) => {
+        const selected = document.querySelector(`input[name="q${qi}"]:checked`);
+        if (selected?.dataset.correct === "true") score++;
     });
+
+    const percent = Math.round((score / quizData.length) * 100);
+
+    quizResult.style.display = "block";
+    quizResult.innerHTML = `
+        <div class="result-emoji">🌱</div>
+        <h3>Você acertou ${score} de ${quizData.length}</h3>
+        <p>${percent === 100 ? "Parabéns!" : "Continue estudando!"}</p>
+    `;
+
+    submitQuiz.style.display = "none";
+});
+
+
+// ============================
+// CONTADORES
+// ============================
+
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+
+    const target = Number(counter.dataset.target);
+
+    let current = 0;
+
+    const updateCounter = () => {
+
+        const increment = target / 100;
+
+        if (current < target) {
+
+            current += increment;
+
+            counter.textContent = Math.ceil(current);
+
+            requestAnimationFrame(updateCounter);
+
+        } else {
+
+            counter.textContent = target;
+
+        }
+    };
+
+    updateCounter();
+});
 
 });
